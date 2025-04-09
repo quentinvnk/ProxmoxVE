@@ -3,7 +3,7 @@
   "slug": "post-pmg-install",
   "categories": [1],
   "date_created": "2025-01-20",
-  "type": "misc",
+  "type": "pve",
   "updateable": false,
   "privileged": false,
   "interface_port": null,

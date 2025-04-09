@@ -3,7 +3,7 @@
   "slug": "post-pve-install",
   "categories": [1],
   "date_created": "2024-04-28",
-  "type": "misc",
+  "type": "pve",
   "updateable": false,
   "privileged": false,
   "interface_port": null,

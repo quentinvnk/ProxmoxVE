@@ -3,7 +3,7 @@
   "slug": "add-lxc-iptag",
   "categories": [1],
   "date_created": "2024-12-16",
-  "type": "misc",
+  "type": "pve",
   "updateable": false,
   "privileged": false,
   "interface_port": null,
