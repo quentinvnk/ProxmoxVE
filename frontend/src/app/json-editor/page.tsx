@@ -60,14 +60,25 @@ export default function JSONGenerator() {
     setScript((prev) => {
       const updated = { ...prev, [key]: value };
 
-      if (key === "type" || key === "slug") {
-        updated.install_methods = updated.install_methods.map((method) => ({
-          ...method,
-          script:
-            method.type === "alpine"
-              ? `${updated.type}/alpine-${updated.slug}.sh`
-              : `${updated.type}/${updated.slug}.sh`,
-        }));
+      if (updated.slug && updated.type) {
+        updated.install_methods = updated.install_methods.map((method) => {
+          let scriptPath = "";
+
+          if (updated.type === "pve") {
+            scriptPath = `tools/pve/${updated.slug}.sh`;
+          } else if (updated.type === "addon") {
+            scriptPath = `tools/addon/${updated.slug}.sh`;
+          } else if (method.type === "alpine") {
+            scriptPath = `${updated.type}/alpine-${updated.slug}.sh`;
+          } else {
+            scriptPath = `${updated.type}/${updated.slug}.sh`;
+          }
+
+          return {
+            ...method,
+            script: scriptPath,
+          };
+        });
       }
 
       const result = ScriptSchema.safeParse(updated);
