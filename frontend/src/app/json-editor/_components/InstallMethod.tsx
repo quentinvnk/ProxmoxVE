@@ -30,8 +30,6 @@ function InstallMethod({ script, setScript, setIsValid, setZodErrors }: InstallM
         scriptPath = `tools/pve/${slug}.sh`;
       } else if (type === "addon") {
         scriptPath = `tools/addon/${slug}.sh`;
-      } else if (newMethodType === "alpine") {
-        scriptPath = `${type}/alpine-${slug}.sh`;
       } else {
         scriptPath = `${type}/${slug}.sh`;
       }
